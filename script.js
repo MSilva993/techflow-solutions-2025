@@ -2,6 +2,7 @@
 const input = document.getElementById("task-input");
 const addBtn = document.getElementById("add-task-btn");
 const taskList = document.getElementById("task-list");
+const filterButtons = document.querySelectorAll("#filters-section button");
 
 // Função para criar tarefa
 function addTask() {
@@ -82,6 +83,36 @@ function saveEdit(inputElement) {
 
     inputElement.replaceWith(span);
 }
+
+// Função para aplicar filtros
+function applyFilter(filter) {
+    const tasks = document.querySelectorAll("#task-list li");
+
+    tasks.forEach(task => {
+        const isCompleted = task.classList.contains("completed");
+
+        if (filter === "all") {
+            task.style.display = "flex";
+        } 
+        else if (filter === "pending" && isCompleted) {
+            task.style.display = "none";
+        }
+        else if (filter === "completed" && !isCompleted) {
+            task.style.display = "none";
+        }
+        else {
+            task.style.display = "flex";
+        }
+    });
+}
+
+// Eventos dos botões de filtro
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+        applyFilter(filter);
+    });
+});
 
 // Evento de clique no botão principal
 addBtn.addEventListener("click", addTask);

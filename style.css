@@ -76,4 +76,35 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+}
+
+/* ====== TAREFA CONCLUÍDA ====== */
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* ====== BOTÕES DAS TAREFAS ====== */
+button.edit-btn,
+button.delete-btn,
+button.complete-btn {
+    padding: 6px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.complete-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ff9800;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
 }
