@@ -8,16 +8,64 @@ function addTask() {
     const taskText = input.value.trim();
 
     if (taskText === "") {
-        return; // impede tarefas vazias
+        return;
     }
 
     const li = document.createElement("li");
-    li.textContent = taskText;
+
+    const span = document.createElement("span");
+    span.textContent = taskText;
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Editar";
+    editBtn.classList.add("edit-btn");
+
+    editBtn.addEventListener("click", () => editTask(span));
+
+    li.appendChild(span);
+    li.appendChild(editBtn);
 
     taskList.appendChild(li);
 
-    input.value = ""; // limpa o campo
+    input.value = "";
 }
 
-// Evento de clique no botão
+// Função para editar tarefa
+function editTask(spanElement) {
+    const oldText = spanElement.textContent;
+
+    const inputEdit = document.createElement("input");
+    inputEdit.type = "text";
+    inputEdit.value = oldText;
+
+    spanElement.replaceWith(inputEdit);
+    inputEdit.focus();
+
+    inputEdit.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            saveEdit(inputEdit);
+        }
+    });
+
+    inputEdit.addEventListener("blur", () => {
+        saveEdit(inputEdit);
+    });
+}
+
+// Função para salvar edição
+function saveEdit(inputElement) {
+    const newText = inputElement.value.trim();
+
+    if (newText === "") {
+        inputElement.focus();
+        return;
+    }
+
+    const span = document.createElement("span");
+    span.textContent = newText;
+
+    inputElement.replaceWith(span);
+}
+
+// Evento de clique no botão principal
 addBtn.addEventListener("click", addTask);
