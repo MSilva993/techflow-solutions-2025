@@ -16,14 +16,21 @@ function addTask() {
     const span = document.createElement("span");
     span.textContent = taskText;
 
+    // Botão Editar
     const editBtn = document.createElement("button");
     editBtn.textContent = "Editar";
     editBtn.classList.add("edit-btn");
-
     editBtn.addEventListener("click", () => editTask(span));
+
+    // Botão Excluir
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Excluir";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.addEventListener("click", () => li.remove());
 
     li.appendChild(span);
     li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
 
     taskList.appendChild(li);
 
