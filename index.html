@@ -7,24 +7,28 @@
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <h1>TechFlow Task Manager</h1>
     </header>
 
-    <section id="new-task-section">
-        <input type="text" id="task-input" placeholder="Digite uma nova tarefa">
-        <button id="add-task-btn">Adicionar</button>
-    </section>
+    <main class="container">
 
-    <section id="filters-section">
-        <button data-filter="all">Todas</button>
-        <button data-filter="pending">Pendentes</button>
-        <button data-filter="completed">Concluídas</button>
-    </section>
+        <section id="new-task-section" class="section">
+            <input type="text" id="task-input" placeholder="Digite uma nova tarefa">
+            <button id="add-task-btn">Adicionar</button>
+        </section>
 
-    <section id="tasks-section">
-        <ul id="task-list"></ul>
-    </section>
+        <section id="filters-section" class="section">
+            <button data-filter="all">Todas</button>
+            <button data-filter="pending">Pendentes</button>
+            <button data-filter="completed">Concluídas</button>
+        </section>
+
+        <section id="tasks-section" class="section">
+            <ul id="task-list"></ul>
+        </section>
+
+    </main>
 
 </body>
 </html>
