@@ -16,6 +16,14 @@ function addTask() {
     const span = document.createElement("span");
     span.textContent = taskText;
 
+    // Botão Concluir
+    const completeBtn = document.createElement("button");
+    completeBtn.textContent = "Concluir";
+    completeBtn.classList.add("complete-btn");
+    completeBtn.addEventListener("click", () => {
+        li.classList.toggle("completed");
+    });
+
     // Botão Editar
     const editBtn = document.createElement("button");
     editBtn.textContent = "Editar";
@@ -29,6 +37,7 @@ function addTask() {
     deleteBtn.addEventListener("click", () => li.remove());
 
     li.appendChild(span);
+    li.appendChild(completeBtn);
     li.appendChild(editBtn);
     li.appendChild(deleteBtn);
 
