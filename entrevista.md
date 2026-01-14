@@ -33,4 +33,5 @@
 
 ---
 
-Este levantamento foi utilizado como base para definir o escopo inicial, criar as Issues no GitHub e organizar o Board do projeto.
+Este levantamento foi utilizado como base para definir o escopo inicial, criar as Issues no 
+GitHub e organizar o Board do projeto.
